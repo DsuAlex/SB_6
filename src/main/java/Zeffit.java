@@ -8,17 +8,20 @@
  * @version (a version number or a date)
  */
 public class Zeffit
-{
-    // TODO: add final variables
+{int hits = 0;
+    private static final int green = 1;
+    private static final int blue = 2;
 
-    // TODO: add instance variable(s)
-
+    private static final int red = 3;
+    private static final int X_PLODE = 4;
+    private static final int hitFree = 0;
+    int cs;
     /**
      * Constructor for objects of class Zeffit
      */
     public Zeffit()
-    {
-        // TODO: initialize instance variable(s)
+    {cs = hitFree;
+
     }
 
     /**
@@ -27,7 +30,19 @@ public class Zeffit
      */
     public void takesHit()
     {
-        // TODO: replace this line with your code
+        hits++;
+        if (cs == hitFree){
+            cs = green;
+        } else if (cs == green) {
+            cs = blue;
+
+        } else if (cs == blue) {
+            cs = red;
+
+        } else if (cs == red) {
+            cs = X_PLODE;
+
+        }
     }
 
     /**
@@ -36,8 +51,12 @@ public class Zeffit
      * @return    true if this Zeffit has taken no hits; false otherwise.
      */
     public boolean isHitFree()
-    {
-        // TODO: replace this line with your code
+    {  boolean isHitFree = false;
+        if (cs == hitFree){
+            isHitFree = true;
+
+    }
+        return isHitFree;
     }
 
     /**
@@ -46,8 +65,10 @@ public class Zeffit
      * @return    true if this Zeffit has taken a hit; false otherwise.
      */
     public boolean isGreen()
-    {
-        // TODO: replace this line with your code
+    {boolean isGreen = false;
+        if (cs == green){
+        isGreen = true;}
+        return isGreen;
     }
 
     /**
@@ -56,8 +77,11 @@ public class Zeffit
      * @return    true if this Zeffit has taken two hits; false otherwise.
      */
     public boolean isBlue()
-    {
-        // TODO: replace this line with your code
+    {boolean isBlue = false;
+       if (cs == blue){
+           isBlue = true;
+       }
+        return isBlue;
     }
 
     /**
@@ -66,8 +90,11 @@ public class Zeffit
      * @return    true if this Zeffit has taken three hits; false otherwise.
      */
     public boolean isRed()
-    {
-        // TODO: replace this line with your code
+    {boolean isRed = false;
+        if (cs == red){
+            isRed = true;
+        }
+       return isRed;
     }
 
     /**
@@ -76,8 +103,11 @@ public class Zeffit
      * @return    true if this Zeffit is dead; false otherwise.
      */
     public boolean isDead()
-    {
-        // TODO: replace this line with your code
+    {boolean isUnAlive = false;
+        if (cs == X_PLODE){
+            isUnAlive = true;
+        }
+            return isUnAlive;
     }
 }
 
